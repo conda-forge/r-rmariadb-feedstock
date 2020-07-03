@@ -5,7 +5,7 @@ Home: https://github.com/r-dbi/RMariaDB, https://downloads.mariadb.org/connector
 
 Package license: GPL-2
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Implements a 'DBI'-compliant interface to 'MariaDB' (<https://mariadb.org/>) and 'MySQL' (<https://www.mysql.com/>) databases.
 
