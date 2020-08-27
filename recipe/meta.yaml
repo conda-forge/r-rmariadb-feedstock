@@ -1,4 +1,4 @@
-{% set version = "1.0.9" %}
+{% set version = "1.0.10" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -11,7 +11,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/RMariaDB_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/RMariaDB/RMariaDB_{{ version }}.tar.gz
-  sha256: b153da49a68c0c8445e55bc3f2e07db7db28ae6002d0c3aabfc64b09ce447a3f
+  sha256: 49e00b78e0e599e2316e393d4ced63d4711ddc2df22243daf65bee51f51f7e34
 
 build:
   merge_build_host: true  # [win]
