@@ -3,7 +3,7 @@ About r-rmariadb
 
 Home: https://github.com/r-dbi/RMariaDB, https://downloads.mariadb.org/connector-c/
 
-Package license: GPL-2
+Package license: GPL-3.0-only
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-rmariadb-feedstock/blob/master/LICENSE.txt)
 
