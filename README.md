@@ -3,6 +3,7 @@ About r-rmariadb-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-rmariadb-feedstock/blob/main/LICENSE.txt)
 
+
 About r-rmariadb
 ----------------
 
@@ -11,6 +12,7 @@ Home: https://github.com/r-dbi/RMariaDB, https://downloads.mariadb.org/connector
 Package license: MIT
 
 Summary: Implements a 'DBI'-compliant interface to 'MariaDB' (<https://mariadb.org/>) and 'MySQL' (<https://www.mysql.com/>) databases.
+
 About r-rmariadb
 ----------------
 
