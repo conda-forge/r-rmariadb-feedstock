@@ -7,20 +7,24 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-rmariadb-feed
 About r-rmariadb
 ----------------
 
-Home: https://github.com/r-dbi/RMariaDB, https://downloads.mariadb.org/connector-c/
+Home: https://downloads.mariadb.org/connector-c/
 
 Package license: MIT
 
 Summary: Implements a 'DBI'-compliant interface to 'MariaDB' (<https://mariadb.org/>) and 'MySQL' (<https://www.mysql.com/>) databases.
+
+Development: https://github.com/r-dbi/RMariaDB
 
 About r-rmariadb
 ----------------
 
-Home: https://github.com/r-dbi/RMariaDB, https://downloads.mariadb.org/connector-c/
+Home: https://downloads.mariadb.org/connector-c/
 
 Package license: MIT
 
 Summary: Implements a 'DBI'-compliant interface to 'MariaDB' (<https://mariadb.org/>) and 'MySQL' (<https://www.mysql.com/>) databases.
+
+Development: https://github.com/r-dbi/RMariaDB
 
 Current build status
 ====================
