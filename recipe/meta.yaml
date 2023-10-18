@@ -63,6 +63,9 @@ requirements:
 test:
   requires:
     - r-testthat
+    - r-dbitest >=1.7.0
+    - r-readr
+    - r-withr
   source_files:
     - tests/
   commands:
