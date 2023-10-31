@@ -1,0 +1,4 @@
+[rs-dbi]
+database="test"
+user="root"
+password=""
