@@ -14,17 +14,18 @@ source:
 
 build:
   merge_build_host: true  # [win]
-  number: 2
+  number: 3
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - {{ compiler('c') }}              # [not win]
-    - {{ compiler('m2w64_c') }}        # [win]
-    - {{ compiler('cxx') }}            # [not win]
-    - {{ compiler('m2w64_cxx') }}      # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+    - {{ compiler('c') }}          # [not win]
+    - {{ compiler('m2w64_c') }}    # [win]
+    - {{ compiler('cxx') }}        # [not win]
+    - {{ compiler('m2w64_cxx') }}  # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}sed               # [win]
     - {{ posix }}grep              # [win]
@@ -35,7 +36,6 @@ requirements:
     - {{ posix }}make
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
-    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-dbi >=1.1.0
@@ -61,12 +61,22 @@ requirements:
     - mysql-connector-c
 
 test:
+  requires:
+    - r-testthat
+    - r-dbitest >=1.7.0
+    - r-readr
+    - r-withr
+  source_files:
+    - tests/
   commands:
-    - $R -e "library('RMariaDB')"           # [not win]
-    - "\"%R%\" -e \"library('RMariaDB')\""  # [win]
+    - $R -e "library('RMariaDB')"                                                     # [not win]
+    - $R -e "testthat::test_file('tests/testthat.R', stop_on_failure=TRUE)"           # [not win]
+    - "\"%R%\" -e \"library('RMariaDB')\""                                            # [win]
+    - "\"%R%\" -e \"testthat::test_file('tests/testthat.R', stop_on_failure=TRUE)\""  # [win]
 
 about:
-  home: https://github.com/r-dbi/RMariaDB, https://downloads.mariadb.org/connector-c/
+  home: https://downloads.mariadb.org/connector-c/
+  dev_url: https://github.com/r-dbi/RMariaDB
   license: MIT
   summary: Implements a 'DBI'-compliant interface to 'MariaDB' (<https://mariadb.org/>) and 'MySQL' (<https://www.mysql.com/>) databases.
   license_family: MIT
