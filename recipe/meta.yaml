@@ -1,6 +1,5 @@
 {% set version = "1.2.2" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-rmariadb
@@ -13,8 +12,7 @@ source:
   sha256: c97c61ace584f9ad9929d3e3f366556e0eecad12bc98ea2979563a01475f468e
 
 build:
-  merge_build_host: true  # [win]
-  number: 3
+  number: 4
   rpaths:
     - lib/R/lib/
     - lib/
@@ -22,8 +20,18 @@ build:
 requirements:
   build:
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+    - r-dbi                        # [build_platform != target_platform]
+    - r-rcpp                       # [build_platform != target_platform]
+    - r-bit64                      # [build_platform != target_platform]
+    - r-blob                       # [build_platform != target_platform]
+    - r-hms                        # [build_platform != target_platform]
+    - r-lubridate                  # [build_platform != target_platform]
+    - r-plogr                      # [build_platform != target_platform]
+    - r-rlang                      # [build_platform != target_platform]
     - {{ compiler('c') }}          # [not win]
+    - {{ stdlib("c") }}            # [not win]
     - {{ compiler('m2w64_c') }}    # [win]
+    - {{ stdlib("m2w64_c") }}      # [win]
     - {{ compiler('cxx') }}        # [not win]
     - {{ compiler('m2w64_cxx') }}  # [win]
     - {{ posix }}filesystem        # [win]
@@ -32,7 +40,7 @@ requirements:
     - {{ posix }}autoconf
     - {{ posix }}automake          # [not win]
     - {{ posix }}automake-wrapper  # [win]
-    - {{ posix }}pkg-config
+    - pkg-config
     - {{ posix }}make
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
@@ -49,7 +57,6 @@ requirements:
     - mysql-connector-c
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
     - r-dbi >=1.1.0
     - r-rcpp >=0.12.4
     - r-bit64
